@@ -1,27 +1,24 @@
 public class ReturnValues {
     public static void main(String[] args) {
-            double measure1 = measureREctangle(4.3, 2.2);
-            double measure2 = measureREctangle(3.2, 4.1);
-            double measure3 = measureREctangle(3.5, 1.2);
-            double measure4 =measureREctangle(1.6, 5.6);
-            double measure5 =measureREctangle(10.1, 0.7);
-            double measure6 =measureREctangle(20.2, 5.6);
+            double measure1 = measureRectangle(4.3, 2.2, "area");
+            double measure2 = measureRectangle(3.2, 4.1, "perimeter");
+            
 
-            stringPrinter(4.3, 2.2, measure1);
-            stringPrinter(3.2, 4.1, measure2);
-            stringPrinter(3.5, 1.2, measure3);
-            stringPrinter(1.6, 5.6, measure4);
-            stringPrinter(10.1, 0.7, measure5);
-            stringPrinter(20.2, 5.6, measure6);
+            stringPrinter(4.3, 2.2, measure1, "area");
+            stringPrinter(3.2, 4.1, measure2, "perimeter");
+           
         }
     
-        public static double measureREctangle(double length, double width){
-            double area = length * width;
-            return area;
-        
+        public static double measureRectangle(double length, double width, String option){
+            switch(option){
+                case "area": return length * width;
+                case "perimeter": return 2 * (length + width);
+                default: return 404;
+            }
+          
         }
 
-        public static void stringPrinter(double length, double width, double area){
-            System.out.println("The area of a rectangle with length " + length + " and width " + width + " is equal to " + area + "\n");
+        public static void stringPrinter(double length, double width, double area, String option){
+            System.out.println("The " + option + " of a rectangle with length " + length + " and width " + width + " is equal to " + area + "\n");
         }
 }
