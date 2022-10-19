@@ -27,7 +27,11 @@ public class DiceJack {
         int sumDiceRolls = roll1+roll2+roll3;
         System.out.println("Dice sum = " + sumDiceRolls + ". Number sum = " + sumOfNumbers);
 
-        checkWin(sumDiceRolls, sumOfNumbers);
+        if(checkWin(sumDiceRolls, sumOfNumbers)){
+            System.out.println("Congrats! You win");
+        } else {
+            System.out.println("Sorry! You lose.");
+        }
 
 
         scan.close();
@@ -39,12 +43,8 @@ public class DiceJack {
         return (int)randomNumber;
     }
 
-    public static void checkWin(int sumDiceRolls, int sumOfNumbers){
-        if(sumOfNumbers > sumDiceRolls && sumOfNumbers - sumDiceRolls < 3){
-            System.out.println("Congrats, you win!");
-        } else {
-            System.out.println("Sorry! You lose.");
-        }
+    public static boolean checkWin(int sumDiceRolls, int sumOfNumbers){
+        return (sumOfNumbers > sumDiceRolls && sumOfNumbers - sumDiceRolls < 3);
     }
     
 }
