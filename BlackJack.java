@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class BlackJack {
+    public static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+       
 
         System.out.println("\nWelcome to Java Casino!");
         System.out.println("Do you have a knack for Black Jack?");
@@ -24,6 +25,8 @@ public class BlackJack {
         System.out.println("\n The dealer shows \n" + cardString(dealerCard1) + "\nand has a card facing down \n " + faceDown());
         int dealerTotal = Math.min(dealerCard1, 10) + Math.min(dealerCard2, 10);
         System.out.println("\nThe dealer's total is hidden");
+
+        String option = hitOrStay();
       
 
       
@@ -129,6 +132,17 @@ public class BlackJack {
                 "  |o o% |\n"+ 
                 "  | | % |\n"+ 
                 "  |__%%[|\n";
+    }
+
+    public static String hitOrStay(){
+        System.out.println("Would you like to hit or stay");
+        String response = scan.nextLine();
+        
+        while(!(response.equalsIgnoreCase("hit") || response.equalsIgnoreCase("stay"))){
+            System.out.println("Please write hit or stay");
+            response = scan.nextLine();
+        }
+        return response;
     }
 
 }
