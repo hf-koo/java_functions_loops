@@ -4,7 +4,24 @@ public class Pokerito {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        System.out.println(randomCard());
+        System.out.println("Let's play Pokderito. Type anything when you're ready.");
+        scan.nextLine();
+        System.out.println("It's like Poker, but a lot simpler.\n");
+        System.out.println("There are two players, you and the computer.");
+        System.out.println("The dealer will give each player one card");
+        System.out.println("Then, the dealer will draw five cards");
+        System.out.println("The player with the most river matches wins!");
+        System.out.println("If the matches are equal, everyone's a winner!\n");
+        System.out.println("Ready? Type anything if you are");
+        scan.nextLine();
+
+        String yourCard = randomCard();
+        String computerCard = randomCard();
+
+        System.out.println("Here's your card: ");
+        System.out.println(yourCard);
+        System.out.println("\nHere's the computer's card: ");
+        System.out.println(computerCard);
     }
 
     public static String randomCard(){
