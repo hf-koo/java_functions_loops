@@ -12,10 +12,18 @@ public class BlackJack {
 
         int card1 = drawRandomCard();
         int card2 = drawRandomCard();
-        int totalValue = 0;
 
         System.out.println("\n You get a \n" + cardString(card1) + "\n and a \n" + cardString(card2));
+        int total = Math.min(card1, 10) + Math.min(card2, 10);
+        System.out.println("Your total is: " + total);
        
+
+        int dealerCard1 = drawRandomCard();
+        int dealerCard2 = drawRandomCard();
+
+        System.out.println("\n The dealer shows \n" + cardString(dealerCard1) + "\nand has a card facing down \n " + faceDown());
+        int dealerTotal = Math.min(dealerCard1, 10) + Math.min(dealerCard2, 10);
+        System.out.println("\nThe dealer's total is hidden");
       
 
       
@@ -112,6 +120,15 @@ public class BlackJack {
                                 "  |_%%%>|\n"; 
             default: return "not possible";
         }
+    }
+
+    public static String faceDown(){
+        return  "   _____\n" +
+                "  |J  ww|\n"+ 
+                "  | o {)|\n"+ 
+                "  |o o% |\n"+ 
+                "  | | % |\n"+ 
+                "  |__%%[|\n";
     }
 
 }
