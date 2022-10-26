@@ -26,9 +26,49 @@ public class BlackJack {
         int dealerTotal = Math.min(dealerCard1, 10) + Math.min(dealerCard2, 10);
         System.out.println("\nThe dealer's total is hidden");
 
-        String option = hitOrStay();
       
+        while (true){
+            String option = hitOrStay();
+            if(option.equals("stay")) {
+                break;
+            }
+            int newCard = drawRandomCard();
+            total += Math.min(newCard, 10);
+            System.out.println("\nYou get a\n" + cardString(newCard));
+            System.out.println("Your total is " + total);
 
+            if(total > 21){
+                System.out.println("Bust! Player loses");
+                System.exit(0);
+            }
+        }
+        System.out.println("\nDealer's turn");
+        System.out.println("\n The dealer's card are \n" + cardString(dealerCard1) + "\n and a \n" + cardString(dealerCard2));
+        System.out.println("Dealer total is " + dealerTotal);
+
+        while(dealerTotal < 17){
+            int newCard = drawRandomCard();
+
+            dealerTotal += Math.min(newCard, 10);
+            System.out.println("\n Dealer gets a \n" + cardString(newCard));
+            System.out.println("Dealer total is " + dealerTotal);
+
+
+        }
+
+        if(dealerTotal > 21){
+            System.out.println("Bust! Dealer loses.");
+            System.exit(0);
+        }
+
+        if(total > dealerTotal){
+            System.out.println("Player wins!");
+        } else if (total == dealerTotal){
+            System.out.println("It's a tie !");
+        } else {
+            System.out.println("Dealer wins!");
+        }
+        scan.close();
       
     }
 
